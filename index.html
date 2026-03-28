@@ -1,48 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
-      <title>Experimental</title>
+      <meta charset="UTF-8">
+      <title>PROJECT 01</title>
       <style>
+         @font-face {
+            font-family: "IBM Plex Mono";
+            src: url("fonts/IBMPlexMono-Regular.ttf");
+            font-weight: 400;
+         }
+         @font-face {
+            font-family: "IBM Plex Mono";
+            src: url("fonts/IBMPlexMono-SemiBold.ttf");
+            font-weight: 450;
+         }
+         html {
+            scroll-behavior: smooth;
+         }
          body {
             color: white;
             background-color: black;
+            font-family: "IBM Plex Mono";
          }
-         .container {
-            display: flex;            /* Image div */
-            justify-content: center;  /* horizontal */
-            align-items: center;      /* vertical */
-         }
-         .navbar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            display: flex;            /* makes items horizontal */
-            gap: 20px;                /* spacing between links */
-            padding: 15px;
-         }
-         .navbar a {
+         a {
             text-decoration: none;
             color: white;
          }
-         a:hover {
+         .logo {
+            position: fixed;
+            left: 25px;
+            top: 0;
+         }
+         .nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            padding: 30px;
+            gap: 20px;
+         }
+         .nav a:hover {
             color: grey;
+         }
+         .center {
+            text-align: center;
+         }
+         #home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
          }
       </style>
    </head>
    <body>
-      <div>
-         <h1>Project_01</h1>
-         <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+      <header>
+         <a href="#home" class="logo">
+            <h1>PROJECT 01</h1>
+         </a>
+         <nav class="nav">
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#contact">CONTACT</a>
          </nav>
-      </div>
-      <div class="container">
-         <img src="img/abstract.jpg"></img>
-      </div>
-      <div class="container">
-         <b>Welcome.</b>
-      </div>
+      </header>
+      <section id="home">
+         <div class="center">
+            <img src="img/gif.gif">
+            <p style="margin-top: 5px;">Welcome.</p>
+         </div>
+      </section>
+      <section id="about"></section>
+      <section id="contact"></section>
    </body>
 </html>
