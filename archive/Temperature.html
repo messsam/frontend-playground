@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+<input type="number" id="input" placeholder="Enter a number">
+<button id="celsius">Celsius</button>
+<button id="fahrenheit">Fahrenheit</button>
+<p id="result"></p>
+<script>
+    const input = document.getElementById("input");
+    const celBtn = document.getElementById("celsius");
+    const fahrBtn = document.getElementById("fahrenheit");
+    const result = document.getElementById("result");
+
+    celBtn.addEventListener("click", function() {
+        const num = parseFloat(input.value);
+        if (isNaN(num)) {
+            result.textContent = "Please enter a valid number.";
+            return;
+        }
+        result.textContent = ((num-32)*(5/9)).toFixed(2)+" °C";
+    })
+    fahrBtn.addEventListener("click", function() {
+        const num = parseFloat(input.value);
+        if (isNaN(num)) {
+            result.textContent = "Please enter a valid number.";
+            return;
+        }
+        result.textContent = ((num*(9/5))+32).toFixed(2)+" °F";
+    })
+</script>
+</body>
+</html>

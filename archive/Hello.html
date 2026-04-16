@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello!</title>
+</head>
+<body>
+<input type="text" id="input" placeholder="Enter your name">
+<button id="btn">Enter</button>
+<p id="result"></p>
+<script>
+    const input = document.getElementById("input");
+    const btn = document.getElementById("btn");
+    const res = document.getElementById("result");
+    btn.addEventListener("click", function() {
+        if (!isNaN(input.value)) {
+            res.textContent = "Please enter a valid name.";
+            return;
+        }
+        res.textContent = "Hello, "+input.value+"!";
+    })
+</script>
+</body>
+</html>
