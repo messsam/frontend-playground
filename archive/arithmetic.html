@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Temperature</title>
+    <title>Arithmetic</title>
     <style>
       body {
         margin: 0;
@@ -23,7 +23,12 @@
         box-shadow: 0 0 20px rgba(0,0,0,0.5);
       }
 
-      input {
+      #display {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      #input {
         padding: 10px;
         width: 200px;
         border: none;
@@ -37,7 +42,6 @@
         display: flex;
         gap: 10px;
         justify-content: center;
-        margin-bottom: 20px;
       }
 
       button {
@@ -49,49 +53,46 @@
         cursor: pointer;
         transition: 0.2s;
       }
+
       button:hover {
         background-color: #444;
       }
       button:active {
         transform: scale(0.95);
       }
-
-      #result {
-        font-size: 20px;
-        min-height: 24px;
-      }
     </style>
   </head>
   <body>
     <div class="container">
+      <p id="display">0</p>
       <input type="number" id="input" placeholder="Enter a number">
       <div class="buttons">
-        <button id="celsius">To Celsius</button>
-        <button id="fahrenheit">To Fahrenheit</button>
+        <button id="increment">Increment</button>
+        <button id="decrement">Decrement</button>
+        <button id="reset">Reset</button>
       </div>
-      <p id="result"></p>
     </div>
     <script>
+      let counter = 0;
+      const displayNum = document.getElementById("display");
+      const incrementBtn = document.getElementById("increment");
+      const decrementBtn = document.getElementById("decrement");
+      const resetBtn = document.getElementById("reset");
       const input = document.getElementById("input");
-      const celBtn = document.getElementById("celsius");
-      const fahrBtn = document.getElementById("fahrenheit");
-      const result = document.getElementById("result");
 
-      celBtn.addEventListener("click", function() {
-        const num = parseFloat(input.value);
-        if (isNaN(num)) {
-          result.textContent = "Please enter a valid number.";
-          return;
-        }
-        result.textContent = ((num-32)*(5/9)).toFixed(2) + " °C";
+      incrementBtn.addEventListener("click", function() {
+          const incrementValue = parseInt(input.value);
+          if (!isNaN(incrementValue)) counter += incrementValue;
+          displayNum.textContent = counter;
       })
-      fahrBtn.addEventListener("click", function() {
-        const num = parseFloat(input.value);
-        if (isNaN(num)) {
-          result.textContent = "Please enter a valid number.";
-          return;
-        }
-        result.textContent = ((num*(9/5))+32).toFixed(2) + " °F";
+      decrementBtn.addEventListener("click", function() {
+          const decrementValue = parseInt(input.value);
+          if (!isNaN(decrementValue)) counter -= decrementValue;
+          displayNum.textContent = counter;
+      })
+      resetBtn.addEventListener("click", function() {
+          counter = 0;
+          displayNum.textContent = counter;
       })
     </script>
   </body>
